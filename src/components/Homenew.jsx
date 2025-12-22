@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { AlignLeft } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import myImage from "../assets/botim.png"; // ✅ Import your image
-import Navbar from "./Navbar";
 
 export default function HomeNewPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,7 +28,7 @@ export default function HomeNewPage() {
             <AlignLeft className="h-12 w-12 text-white" />
           </button>
           <div className="space-x-8 text-gray-300 text-lg font-medium max-xl:hidden">
-            <Navbar isOpen={mobileMenuOpen} />
+            {/* <Navbar isOpen={mobileMenuOpen} /> */}
           </div>
         <motion.button
         whileHover={{scale:1.3}}
@@ -65,11 +63,11 @@ export default function HomeNewPage() {
             <p className="text-gray-300 text-xl leading-relaxed max-w-md">
              AI-Powered Care, Built for Doctors and Patients
             </p>
-            <Link to="/signup">
+           
               <button className="px-8 py-4 text-lg rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl hover:scale-105 transform transition-all duration-300">
                 Join Now
               </button>
-            </Link>
+          
             <div className="mt-8 border-t border-gray-700 pt-6">
               <h3 className="font-bold text-2xl text-white mb-1">
                 Better Information, Better Health
@@ -85,7 +83,7 @@ export default function HomeNewPage() {
             <img
               src={myImage}
               alt="Healthcare"
-              className="rounded-3xl shadow-2xl object-cover w-full max-w-md transform hover:scale-105 transition-transform duration-500  border-white/20"
+              className="rounded-3xl shadow-2xl object-cover h-[390px] w-[400px] max-w-md transform hover:scale-105 transition-transform duration-500  border-white/20"
             />
           </div>
         </div>

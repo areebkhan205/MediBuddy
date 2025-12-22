@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { AlignLeft } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 const conditions = [
   "ADHD",
   "Allergies",
@@ -20,117 +20,103 @@ const conditions = [
   "HIV & AIDS",
 ];
 
-const Navbar = () => {
-  const [dropdown, setDropdown] = useState(false);
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [dropdown, setDropdown] = useState(false);
   const location = useLocation();
-  const navigate= useNavigate()
 
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdown(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleScrollToServices = (e) => {
-    e.preventDefault();
-    if (location.pathname !== "/") {
-      window.location.href = "/#services";
-    } else {
-      document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollTo = (id) => {
     setMenuOpen(false);
+    if (location.pathname !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleScrollToFooter = (e) => {
-    e.preventDefault();
-    if (location.pathname !== "/") {
-      window.location.href = "/#footer";
-    } else {
-      document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
-
-  const renderLinks = () => (
-    <>
-      <motion.li 
-      whileHover={{scale:1.3}}
-       transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        <Link 
-          to="/" 
-          className="hover:text-blue-400 text-lg block w-full"
-          onClick={() => setMenuOpen(false)}
-        >
+  const NavLinks = ({ mobile = false }) => (
+    <ul
+      className={`flex ${
+        mobile ? "flex-col space-y-4" : "space-x-10"
+      } text-lg`}
+    >
+      <motion.li whileHover={{ scale: 1.1 }}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>
           Home
         </Link>
       </motion.li>
-      <motion.li 
-      whileHover={{scale:1.3}}
-       transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        <a 
-          href="#services" 
-          onClick={handleScrollToServices} 
-          className="hover:text-blue-400 text-lg block w-full"
-        >
+
+      <motion.li whileHover={{ scale: 1.1 }}>
+        <button onClick={() => scrollTo("services")}>
           Services
-        </a>
+        </button>
       </motion.li>
-      <motion.li
-      whileHover={{scale:1.3}}
-       transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        <Link 
-          to="/report" 
-          className="hover:text-blue-400 text-lg block w-full"
-          onClick={() => setMenuOpen(false)}
-        >
+
+      <motion.li whileHover={{ scale: 1.1 }}>
+        <Link to="/report" onClick={() => setMenuOpen(false)}>
           Report
         </Link>
       </motion.li>
-      <motion.li
-      whileHover={{scale:1.3}}
-       transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        <a 
-          href="#footer" 
-          onClick={handleScrollToFooter} 
-          className="hover:text-blue-400 text-lg block w-full"
+
+      {/* CONDITIONS DROPDOWN (DESKTOP ONLY – SAME UI) */}
+      {!mobile && (
+        <li
+          className="relative"
+          onMouseEnter={() => setDropdown(true)}
+          onMouseLeave={() => setDropdown(false)}
         >
+          <span className="cursor-pointer">Conditions</span>
+
+          {dropdown && (
+            <div className="absolute left-0 mt-2 bg-white text-black shadow-lg rounded-lg p-4 w-[400px] grid grid-cols-2 gap-3 z-50">
+              {conditions.map((c) => (
+                <Link
+                  key={c}
+                  to={`/conditions/${c.toLowerCase().replace(/\s|\/+/g, "-")}`}
+                  className="hover:text-blue-500 border-b pb-1"
+                >
+                  {c}
+                </Link>
+              ))}
+            </div>
+          )}
+        </li>
+      )}
+
+      <motion.li whileHover={{ scale: 1.1 }}>
+        <button onClick={() => scrollTo("footer")}>
           Contact
-        </a>
+        </button>
       </motion.li>
-    </>
+    </ul>
   );
 
   return (
     <div className="w-full">
-     
-      <nav className="bg-gray-900 rounded-3xl text-white p-4 xl:flex justify-between items-center">
+      {/* TOP BAR */}
+      <nav className="bg-gray-900 rounded-3xl text-white p-4 flex justify-between items-center">
+        <h1 className="text-xl font-bold">MediFlix</h1>
+
+        {/* DESKTOP */}
+        <div className="hidden xl:flex">
+          <NavLinks />
+        </div>
+
+        {/* MOBILE BUTTON */}
         <button
-          className="xl:hidden text-white"
+          className="xl:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <AlignLeft className="h-6 w-6" />
         </button>
-        <ul className="hidden xl:flex space-x-25">{renderLinks()}</ul>
       </nav>
 
-      
-      <div className={`xl:hidden bg-gray-900 text-white fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        menuOpen ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        <ul className="flex flex-col space-y-4 p-6">
-          {renderLinks()}
-        </ul>
-      </div>
+      {/* MOBILE MENU */}
+      {menuOpen && (
+        <div className="xl:hidden bg-gray-900 text-white fixed top-0 left-0 right-0 z-50 p-6">
+          <NavLinks mobile />
+        </div>
+      )}
     </div>
   );
-};
-
-export default Navbar;
+}
