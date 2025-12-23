@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { AlignLeft } from "lucide-react";
 import { useState } from "react";
-import myImage from "../assets/botim.png"; // ✅ Import your image
 
 export default function HomeNewPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -76,15 +75,6 @@ export default function HomeNewPage() {
                Clinical intelligence. Human-centered care.
               </p>
             </div>
-          </div>
-
-          {/* RIGHT: Image */}
-          <div className="md:w-1/2 flex justify-center items-center relative z-0 max-xl:hidden">
-            <img
-              src={myImage}
-              alt="Healthcare"
-              className="rounded-3xl shadow-2xl object-cover h-[390px] w-[400px] max-w-md transform hover:scale-105 transition-transform duration-500  border-white/20"
-            />
           </div>
         </div>
       </div>
