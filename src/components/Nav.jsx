@@ -11,6 +11,8 @@ const Navbar = () => {
       <div
         className="
           mx-auto 
+          w-[334px]
+          md:w-[1356px]
           max-w-[1456px]
           rounded-[30px]
           bg-[#232C4A]
@@ -24,12 +26,17 @@ const Navbar = () => {
 
           {/* Logo */}
           <div
-            style={{ fontFamily: "Surgena" }}
+            style={{ fontFamily: "Surgena Personal" }}
             className="
-              px-10 py-3
+            px-7 py-2
+            md:left-0
+            relative
+            left-[-22px]
+              md:px-8 md:py-3
               flex items-center justify-center
-              rounded-full
-              font-semibold text-3xl
+             rounded-lg
+              text-xl
+             md:text-3xl
               bg-gradient-to-r from-[#5C6CCB] to-[#F0379F]
               text-white
               cursor-pointer
@@ -42,8 +49,8 @@ const Navbar = () => {
 
           {/* Nav Links */}
           <nav
-            style={{ fontFamily: "Surgena" }}
-            className="relative flex items-center gap-10 md:gap-60 text-white font-medium"
+            style={{ fontFamily: "Surgena Personal" }}
+            className="relative hidden  md:flex items-center gap-10 md:gap-60 text-white "
           >
             {/* Moving Rectangle */}
             <motion.div
@@ -122,8 +129,10 @@ const Navbar = () => {
               aria-label="Search"
               className="
                 relative
+                hidden 
+
                 w-10 h-10
-                flex items-center justify-center
+                md:flex items-center justify-center
                 rounded-full
                 border border-white/20
                 bg-[#212121]
@@ -157,18 +166,63 @@ const Navbar = () => {
             </button>
 
             {/* Login Button */}
-            <button
-              className="
-                px-6 py-2
-                rounded-full
-                border border-purple-500
-                text-purple-400
-                hover:bg-purple-500 hover:text-white
-                transition
-              "
-            >
-              LOGIN
-            </button>
+          {/* From Uiverse.io by SmookyDev */}
+<button
+  style={{
+    WebkitBoxReflect:
+      "below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4))",
+  }}
+  className="px-4 py-2  md:px-10 md:py-3 bg-gradient-to-r from-red-500 to-orange-500 rounded-full shadow-xl group-hover:shadow-2xl group-hover:shadow-red-600 shadow-red-600 uppercase font-serif tracking-widest relative overflow-hidden group text-transparent cursor-pointer z-10 after:absolute after:rounded-full after:bg-red-200 after:h-[85%] after:w-[95%] after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 hover:saturate-[1.15] active:saturate-[1.4]"
+>
+  LOGIN
+
+  <p
+    className="absolute z-40 font-semibold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest"
+  >
+    LOGIN
+  </p>
+
+  <p
+    className="absolute z-40 top-1/2 left-1/2 bg-gradient-to-r from-red-700 to-orange-700 bg-clip-text text-transparent -translate-x-1/2 translate-y-full h-full w-full transition-all duration-300 group-hover:-translate-y-[40%] tracking-widest font-extrabold"
+  >
+    LOGIN
+  </p>
+
+  <svg
+    className="absolute w-full h-full scale-x-125 rotate-180 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 group-hover:animate-none animate-pulse group-hover:-translate-y-[45%] transition-all duration-300"
+    viewBox="0 0 2400 800"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient id="sssurf-grad" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stopOpacity="1" stopColor="hsl(37, 99%, 67%)" />
+        <stop offset="100%" stopOpacity="1" stopColor="hsl(316, 73%, 52%)" />
+      </linearGradient>
+    </defs>
+
+    <g transform="matrix(1,0,0,1,0,-91.0877685546875)" fill="url(#sssurf-grad)">
+      <path opacity="0.05" transform="translate(0,35)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="0.21" transform="translate(0,70)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="0.37" transform="translate(0,105)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="0.53" transform="translate(0,140)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="0.68" transform="translate(0,175)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="0.84" transform="translate(0,210)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+      <path opacity="1" transform="translate(0,245)" d="M0 306Q600 450 1200 343T2400 314V800H0Z" />
+    </g>
+  </svg>
+
+  <svg
+    className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30%] group-hover:-translate-y-[33%] group-hover:scale-95 transition-all duration-500 z-40 fill-red-500"
+    viewBox="0 0 1440 320"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0,288L1440,160L1440,320L0,320Z"
+      fillOpacity="1"
+    />
+  </svg>
+</button>
+
           </div>
         </div>
       </div>
