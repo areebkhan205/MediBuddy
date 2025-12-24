@@ -1,5 +1,3 @@
-import React from "react";
-import '../styles/Services.css';
 
 const services = [
   {

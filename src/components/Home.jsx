@@ -6,11 +6,24 @@ export default function HomeNewPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black min-h-screen flex items-center justify-center p-10 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-[#101727] to-[#1D2939] min-h-screen flex items-center justify-center p-10 relative overflow-hidden">
       {/* Background grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#444,transparent_1px)] bg-[length:20px_20px] opacity-20 z-0 animate-pulse" />
 
-      <div className="relative bg-white/10 backdrop-blur-xl shadow-2xl rounded-3xl p-12 w-full max-w-7xl overflow-hidden border border-white/20 z-10">
+    <div className="
+  relative
+  bg-[#6863D5]/15
+  backdrop-blur-[100px]
+  shadow-2xl
+  rounded-[40px]
+  p-12
+  w-[1255px]
+  h-[713px]
+  top-[33px]
+  left-[4px]
+  overflow-hidden
+  z-10
+">
         {/* Glows */}
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-tr from-pink-500 to-purple-500 opacity-40 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500 to-purple-500 opacity-40 rounded-full blur-3xl animate-pulse" />

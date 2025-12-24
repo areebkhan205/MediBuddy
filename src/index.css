@@ -1,6 +1,23 @@
 @font-face {
   font-family: "Satoshi";
-  src: url("/src/assets/fonts/Satoshi-Black.woff") format("woff2");
+  src: url("/src/assets/fonts/Satoshi-Black.woff") format("woff");
   font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/src/assets/fonts/Surgena/Surgena-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Surgena";
+  src: url("/src/assets/fonts/Surgena/Surgena-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
