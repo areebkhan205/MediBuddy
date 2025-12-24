@@ -8,10 +8,10 @@ function App() {
 
   return (
     <div>
-    
+    <div className="bg-gradient-to-br from-[#101727] to-[#1D2939] w-full h-full flex-grow">
       <Nav/>
        <HomeNewPage/>
-     
+     </div>
     </div>
   );
 }
