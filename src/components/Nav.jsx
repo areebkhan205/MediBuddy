@@ -179,7 +179,7 @@ const Navbar = () => {
   <p
     className="absolute z-40 font-semibold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest"
   >
-    LOGIN
+  LOGIN
   </p>
 
   <p

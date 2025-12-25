@@ -1,32 +1,37 @@
-import { motion } from "framer-motion";
 import { AlignLeft } from "lucide-react";
 import { useState } from "react";
-
+import circle from "../assets/circle1.png";
 export default function HomeNewPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
-    <div className="bg-gradient-to-br from-[#101727] to-[#1D2939] min-h-screen flex items-center justify-center p-10 relative overflow-hidden">
+return (
+  <div className="bg-gradient-to-br from-[#101727] to-[#1D2939] min-h-screen flex items-center justify-center p-10 relative overflow-hidden">
+     <div className="relative w-[461px] h-[461px] right-[51px] bottom-[70px] z-[10px] ">
+    <img src={circle} />
+  </div>
       {/* Background grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#444,transparent_1px)] bg-[length:20px_20px] opacity-20 z-0 animate-pulse" />
+       {/* bg-[radial-gradient(#444,transparent_1px)] bg-[length:20px_20px] */}
+      <div className="absolute inset-0 opacity-3 z-0" />
 
-    <div className="
+   <div className="
   relative
-  bg-[#6863D5]/15
-  backdrop-blur-[100px]
+  bg-[#4F46E5]/10
+  backdrop-blur-[10px]
   shadow-2xl
   rounded-[40px]
   p-12
-  w-[1255px]
+  w-[2100px]
+  max-w-[2600px]
   h-[713px]
-  top-[33px]
-  left-[4px]
+  mx-auto
+  right-[160px]
+  top-[50px]
   overflow-hidden
   z-10
 ">
         {/* Glows */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-tr from-pink-500 to-purple-500 opacity-40 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500 to-purple-500 opacity-40 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -top-40 -left-40 w-96 h-96  opacity-40 rounded-full " />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96  opacity-40 rounded-full blur-3xl animate-pulse" />
 
         {/* Navbar */}
         <nav className="flex justify-between items-center mb-12 relative z-20">
@@ -42,24 +47,7 @@ export default function HomeNewPage() {
           <div className="space-x-8 text-gray-300 text-lg font-medium max-xl:hidden">
             {/* <Navbar isOpen={mobileMenuOpen} /> */}
           </div>
-        <motion.button
-        whileHover={{scale:1.3}}
-       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-  className="
-    font-medium
-    text-white
-    bg-white/10
-    backdrop-blur-md
-    border border-white/20
-    px-6 py-2
-    rounded-full
-    
-  "
-  onClick={() => (window.location.href = '/signup')}
->
-  Sign Up
-</motion.button>
-
+      
 
         </nav>
 
@@ -91,6 +79,7 @@ export default function HomeNewPage() {
           </div>
         </div>
       </div>
+     
     </div>
   );
 }

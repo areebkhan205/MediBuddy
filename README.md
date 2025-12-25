@@ -1,8 +1,5 @@
-Below is a **refined, well-structured, and professional version** of your content with improved flow, clarity, and presentation, suitable for a README, hackathon submission, or portfolio project.
 
----
-
-# 🩺 ECHOMEDICS – AI-Powered Medical Chatbot Platform
+# 🩺 ECOMEDx – AI-Powered Medical Chatbot Platform
 
 **ECHOMEDICS** is an AI-powered medical chatbot and web platform developed to make healthcare support, medical guidance, and report analysis accessible to everyone. The platform emphasizes **affordability, simplicity, and 24×7 availability**, with a special focus on individuals from lower-income and rural communities who may have limited access to immediate medical care.
 
